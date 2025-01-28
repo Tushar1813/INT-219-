@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width:50%;
+            text-align:center;
+        }
+        th{
+            background-color: rgb(134, 93, 30);
+        }
+        th,td{
+            border-bottom: 2px solid grey;
+            
+            padding:10px;
+            color:black;
+        }
+        tr:nth-child(even){
+            background-color: aquamarine;
+        }
+        img{
+            border:1px solid brown;
+            border-radius: 4px;
+            padding: 5px;
+            width: 150px;
+        }
+        body{
+            background-image:url("tanj.jpg");
+            background-repeat: no-repeat;
+            background-position: top right;
+            margin-right: 200px;
+            background-attachment: fixed;
+        }
+        a:link{
+            color:red;
+        }
+        a:visited{
+            color:green;
+        }
+        a:hover{
+            color:hotpink;
+        }
+        a:active{
+            color:blue;
+        }
+        img:hover{
+            box-shadow:0 0 6px 2px rgb(206, 19, 50);
+        }
+        div{
+            border: 5px dashed red;
+            margin-left: 100px;
+        }
+        p.a1{
+            margin-left: inherit;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>The background-attachment Property</h1>
+    <h2>Thumbnail:</h2>
+    <a href="tanj.jpg" target="_blank"><img src="tanj.jpg"></a>
+    <hr width="70%" align="left">
+    <p><h2>Using Inherite property using in css.</h2></p>
+    <div>
+    <p class="a1">The background-attachment property specifies whether the background image should so.</p>
+    </div>
+    <p><h2><strong>Marks Distribution Table:</strong></h2></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Roll.No</th>
+                <th>Course</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>34</td>
+                <td>Mathematics</td>
+                <td>67</td>
+            </tr>
+            <tr>
+                <td>45</td>
+                <td>English</td>
+                <td>79</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>History</td>
+                <td>90</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

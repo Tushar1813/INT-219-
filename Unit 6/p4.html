@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Even/Odd Selector</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        li{
+            padding: 8px;
+            margin: 5px 0;
+            list-style: none;
+            border: 1px solid #ccc;
+        }
+
+        
+        input, textarea {
+            width: 300px;
+            padding: 8px;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Fruit List(Even/Odd Highlight)</h2>
+
+    <ul id="fruitList">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Grape</li>
+        <li>Weatermelon</li>
+        <li>Mango</li>
+        <li>Pineapple</li>
+        <li>Cherry</li>
+    </ul>
+
+    <button id="evenBtn">Highlight Even</button>
+    <button id="oddBtn">Highlight Odd</button>
+    <button id="resetBtn">Reset</button>
+    <button id="highlightBtn">highlight with jQuery</button>
+
+    <div id="successMsg" class="hidden">Thanks for your feedback!</div>
+
+    <script>
+        $(document).ready(function () {
+            $("#highlightBtn").click(function() {
+                $("#fruitList li:first").css("background-color","#d0f0c0");
+                $("#fruitList li:last").css("background-color","#fddde6");
+                $("#fruitList li:eq(2)").css({"background-color":"#ffffcc","font-weight":"bold"});
+
+                $("#fruitList li:not(:eq(2))").css("opacity","0.6");
+
+                }); 
+
+                $("oddBtn").click(function(){
+                    $("#fruitList li").removeClass("even odd");
+                    $("#fruitList li:odd").addClass("odd");
+                });
+
+                $("#restBtn").click(function(){
+                    
+                })
+            // Highlight name field on focus
+            $("input#name").focus(function () {
+                $(this).css("background-color", "#e0f7fa");
+            }).blur(function () {
+                $(this).css("background-color", "");
+            });
+        });
+    </script>
+
+</body>
+</html>

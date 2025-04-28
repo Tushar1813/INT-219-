@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #successMsg {
+            color: green;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 300px;
+            padding: 8px;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Feedback Form</h2>
+
+    <form id="feedbackForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email"><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message"></textarea><br><br>
+
+        <button type="submit" id="submitBtn">Submit</button>
+    </form>
+
+    <div id="successMsg" class="hidden">Thanks for your feedback!</div>
+
+    <script>
+        $(document).ready(function () {
+            $("#feedbackForm").submit(function(e) {
+                e.preventDefault();
+
+                let allInputs = $("#feedbackForm :input").not(':button, :submit');
+                let isEmpty = false;
+
+                allInputs.each(function () {
+                    if ($(this).val().trim() === "") {
+                        isEmpty = true;
+                        $(this).css("border", "2px solid red");
+                    } else {
+                        $(this).css("border", "");
+                    }
+                });
+
+                if (isEmpty) {
+                    alert("Please fill out all fields.");
+                    return;
+                }
+
+                $("#feedbackForm").slideUp();
+                $("#successMsg").removeClass("hidden").fadeIn();
+            });
+
+            // Highlight name field on focus
+            $("input#name").focus(function () {
+                $(this).css("background-color", "#e0f7fa");
+            }).blur(function () {
+                $(this).css("background-color", "");
+            });
+        });
+    </script>
+
+</body>
+</html>

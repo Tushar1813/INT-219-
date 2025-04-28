@@ -1,0 +1,13 @@
+[
+    {
+   "name": "Mayank",
+   "age": 21,
+   "address": {"city":"Raipur", "zip":"17627"},
+   "hobbies": ["reading", "gaming"]
+},
+{
+   "name": "John",
+   "age": 30,
+   "address": {"city":"Delhi", "zip":"12345"},
+   "hobbies": ["sports", "music"]
+}]

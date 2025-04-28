@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body{font-family: arial;padding: 20px;}
+        input[type="text"]{ width: 200px; padding: 5px;
+        } button{ margin:5px; padding: 6px 10px;}
+        #box{
+            border: 2px solid #007acc;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #f1f9ff;
+        }
+        .highlight{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <body>
+        <h2>jQuery DOM Manipulation Methods</h2>
+        <input type="text" id="userInput" placeholder="enter some text">
+        <button id="setHtml">.html()</button>
+        <button id="setText">.text()</button>
+        <button id="getHtml">Get.html()</button>
+        <button id="getText">Get.text()</button>
+        <button id="getValue">.val()</button><br>
+    
+        <button id="append">.append()</button>
+        <button id="prepend">.prepend()</button>
+        <button id="before">.before()</button>
+        <button id="after">.after()</button>
+        <button id="remove">.remove()</button>
+        <button id="empty">.empty()</button>
+    
+        <h3>Target Box: </h3>
+        <div id="box">This is the target box.</div>
+    
+        <script>
+            $(document).ready(function () {
+                // Set HTML content
+                $('#setHtml').click(function () {
+                    const input = $('#userInput').val();
+                    $('#box').html(input);
+                });
+    
+                // Set text content
+                $('#setText').click(function () {
+                    const input = $('#userInput').val();
+                    $('#box').text(input);
+                });
+    
+                // Get HTML content
+                $('#getHtml').click(function () {
+                    alert('HTML Content: ' + $('#box').html());
+                });
+    
+                // Get text content
+                $('#getText').click(function () {
+                    alert('Text Content: ' + $('#box').text());
+                });
+    
+                // Get value of input
+                $('#getValue').click(function () {
+                    alert('Input Value: ' + $('#userInput').val());
+                });
+    
+                // Append content
+                $('#append').click(function () {
+                    const input = $('#userInput').val();
+                    $('#box').append(input);
+                });
+    
+                // Prepend content
+                $('#prepend').click(function () {
+                    const input = $('#userInput').val();
+                    $('#box').prepend(input);
+                });
+    
+                // Insert content before the box
+                $('#before').click(function () {
+                    const input = $('#userInput').val();
+                    $('#box').before('<div>' + input + '</div>');
+                });
+    
+                // Insert content after the box
+                $('#after').click(function () {
+                    const input = $('#userInput').val();
+                    $('#box').after('<div>' + input + '</div>');
+                });
+    
+                // Remove the box
+                $('#remove').click(function () {
+                    $('#box').remove();
+                });
+    
+                // Empty the box
+                $('#empty').click(function () {
+                    $('#box').empty();
+                });
+            });
+        </script>
+    </body>
+    </html>
+    
+
+</body>
+</html>

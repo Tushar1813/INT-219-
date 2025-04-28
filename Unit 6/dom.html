@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM + JSON Example</title>
+
+</head>
+<body>
+    <h1>User List</h1>
+    <button id="loadbtn">Load Users</button>
+    <div id="userList"></div>
+
+    <script>
+        const jsonData = {
+            users:[
+            {name: "John Doe", age: 30,email:"314dd@gamil.com"},
+            {name: "Jane Smith", age: 25,email:"aggafgaf@gamil.com"},
+            {name: "Sam Brown", age: 22,email:"ftgy@gmail.com"}
+        ]};
+
+        const button= document.querySelector("#loadbtn");
+        const ListrContainer= document.querySelector("#userList");
+
+        button.addEventListener("click", function() {
+            // Clear the container before loading new data
+            ListrContainer.innerHTML = "";
+
+        
+
+            // Loop through the users and create list items
+            jsonData.users.forEach(user => {
+                const li = document.createElement("li");
+                li.textContent = `${user.name}, Age: ${user.age}, Email: ${user.email}`;
+                ul.appendChild(li);
+            });
+
+            // Append the list to the container
+            ListrContainer.appendChild(ul);
+        });
+    </script>
+</body>
+</html>

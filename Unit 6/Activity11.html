@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Task Manager</title>
+    <style>
+        body {
+            border: 4px center solid #007acc;
+            border-radius: 20px;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f1f9ff;
+        }
+        #taskInput {
+            width: 300px;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .task-text {
+            flex: 1;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Task Manager</h1>
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button id="addTaskButton">Add Task</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        document.getElementById('addTaskButton').addEventListener('click', function () {
+            const taskInput = document.getElementById('taskInput');
+            const taskText = taskInput.value.trim();
+
+            if (taskText === '') {
+                alert('Please enter a task!');
+                return;
+            }
+
+            const taskList = document.getElementById('taskList');
+
+            // Create a new task item
+            const taskItem = document.createElement('li');
+
+            // Task text
+            const taskSpan = document.createElement('span');
+            taskSpan.textContent = taskText;
+            taskSpan.className = 'task-text';
+
+            // Edit button
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Edit';
+            editButton.addEventListener('click', function () {
+                const newTaskText = prompt('Edit your task:', taskSpan.textContent);
+                if (newTaskText !== null && newTaskText.trim() !== '') {
+                    taskSpan.textContent = newTaskText.trim();
+                }
+            });
+
+            // Delete button
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.addEventListener('click', function () {
+                taskList.removeChild(taskItem);
+            });
+
+            // Append elements to the task item
+            taskItem.appendChild(taskSpan);
+            taskItem.appendChild(editButton);
+            taskItem.appendChild(deleteButton);
+
+            // Add the task item to the task list
+            taskList.appendChild(taskItem);
+
+            // Clear the input field
+            taskInput.value = '';
+        });
+    </script>
+</body>
+</html>
